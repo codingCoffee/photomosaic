@@ -74,6 +74,13 @@ sh enter.sh
 
 Finally, and most importantly, get together some photos and videos you'd like to either create images from (use as mosaic tiles) or create mosaics of (turn your photos/videos into mosaics). I took my iPhone photos/videos for the last few years and threw them all in a folder, and you can see some of the cool results below.
 
+## Local Setup (Non Dockerized version)
+
+Requires
+- OpenCV
+- [fiass](https://github.com/facebookresearch/faiss)
+- Gifsicle
+
 ## Photomosaic Scripts
 
 Note that the default setting for all of these scripts are to use caching, which means once you've indexed a particular folder of photos at a certain scale (read: tile size), you'll never need to do it again. 

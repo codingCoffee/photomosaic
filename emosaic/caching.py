@@ -1,6 +1,11 @@
 import os
 import glob
-import cPickle as pickle
+import six
+
+if six.PY2:
+    import cPickle as pickle
+else:
+    import pickle
 
 DEFAULT_CACHE_DIR = 'cache'
 DEFAULT_CACHE_PATTERN = '*.pkl'
@@ -65,8 +70,8 @@ class EmbeddingsCacheConfig(object):
                 )
                 pickle.dump(data, f, protocol=2)
             return True
-        except Exception:
-            print("Failed to cache index!")
+        except Exception as e:
+            print("Failed to cache index! Reason:\n", e, "\nContinuing without caching...\n")
             return False
 
 
@@ -172,6 +177,6 @@ class MosaicCacheConfig(object):
                 )
                 pickle.dump(data, f, protocol=2)
             return True
-        except Exception:
-            print("Failed to cache index!")
+        except Exception as e:
+            print("Failed to cache index! Reason:\n", e, "\nContinuing without caching...\n")
             return False
